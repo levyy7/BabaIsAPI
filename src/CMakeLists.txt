@@ -1,0 +1,82 @@
+add_executable(${PROJECT_NAME} main.cpp
+        game/Game.cpp
+        game/Game.h
+        game/logic/level/block/Block.cpp
+        game/logic/level/block/Block.h
+        game/logic/level/block/TextBlock.cpp
+        game/logic/level/block/TextBlock.h
+        game/logic/level/block/NounBlock.cpp
+        game/logic/level/block/NounBlock.h
+        game/logic/level/block/concept/BlockConcept.cpp
+        game/logic/level/block/concept/BlockConcept.h
+        game/logic/level/block/concept/ConceptController.cpp
+        game/logic/level/block/concept/ConceptController.h
+        game/logic/level/block/VerbBlock.cpp
+        game/logic/level/block/VerbBlock.h
+        game/logic/level/block/PropertyBlock.cpp
+        game/logic/level/block/PropertyBlock.h
+        game/logic/level/block/BlockFactory.cpp
+        game/logic/level/block/BlockFactory.h
+        game/logic/property/Property.cpp
+        game/logic/property/Property.h
+        game/logic/level/Level.cpp
+        game/logic/level/Level.h
+        game/logic/GameLogic.cpp
+        game/logic/GameLogic.h
+        game/logic/property/StopProperty.cpp
+        game/logic/property/StopProperty.h
+        game/logic/property/PushProperty.cpp
+        game/logic/property/PushProperty.h
+        game/logic/property/YouProperty.cpp
+        game/logic/property/YouProperty.h
+        game/logic/property/WinProperty.cpp
+        game/logic/property/WinProperty.h
+        game/logic/rule/RuleInterpreter.cpp
+        game/logic/rule/RuleInterpreter.h
+        game/logic/rule/RuleParser.cpp
+        game/logic/rule/RuleParser.h
+        game/logic/rule/Rule.cpp
+        game/logic/rule/Rule.h
+        game/logic/rule/PropertyRule.cpp
+        game/logic/rule/PropertyRule.h
+        game/logic/rule/NounRule.cpp
+        game/logic/rule/NounRule.h
+        game/logic/property/PropertyController.cpp
+        game/logic/property/PropertyController.h
+        api/GameController.cpp
+        api/GameController.h
+        api/command/Command.cpp
+        api/command/Command.h
+        api/command/CommandQueue.cpp
+        api/command/CommandQueue.h
+        game/engine/event/api_event_manager.ixx
+        api/dto/StatusDTO.cpp
+        api/dto/StatusDTO.h
+        api/command/StatusCommand.cpp
+        api/command/StatusCommand.h
+        api/command/LevelCommand.cpp
+        api/command/LevelCommand.h
+        game/logic/property/DefeatProperty.cpp
+        game/logic/property/DefeatProperty.h
+        game/logic/property/HotProperty.cpp
+        game/logic/property/HotProperty.h
+        game/logic/property/ShutProperty.cpp
+        game/logic/property/ShutProperty.h
+        game/logic/property/SinkProperty.cpp
+        game/logic/property/SinkProperty.h
+)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE external)
+
+target_sources(${PROJECT_NAME}
+        PUBLIC
+        FILE_SET CXX_MODULES
+        FILES
+        game/engine/event/event_manager.ixx
+        game/engine/event/keyboard_event_manager.ixx
+        game/engine/level_loader.ixx
+        game/engine/sprite_manager.ixx
+        game/engine/graphic_manager.ixx
+        game/engine/game_manager.ixx)
+
+include_directories(${CMAKE_SOURCE_DIR}/src/game/logic ${CMAKE_SOURCE_DIR}/src/game/logic/level ${CMAKE_SOURCE_DIR}/src/game/logic/level/block ${CMAKE_SOURCE_DIR}/src/game/logic/level/block/concept ${CMAKE_SOURCE_DIR}/src/game/logic/property ${CMAKE_SOURCE_DIR}/src/game/logic/level/block/concept ${CMAKE_SOURCE_DIR}/src/game/logic/rule ${CMAKE_SOURCE_DIR}/resources/definitions)
