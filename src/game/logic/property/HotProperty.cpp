@@ -14,7 +14,7 @@ std::set<Block *> HotProperty::getBlocksToDelete(Block *const executedBy, const 
     std::set<Block *> toDelete;
 
     for (Block *block: blocksInCell) {
-        if (block->getBlockConcept()->getBlockProperties().contains(PropertyController::getPropertyMap()["MELT"])) {
+        if (block->getBlockConcept()->getBlockProperties().find(PropertyController::getPropertyMap()["MELT"]) != block->getBlockConcept()->getBlockProperties().end()) {
             toDelete.insert(block);
             break;
         }

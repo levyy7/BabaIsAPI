@@ -11,7 +11,7 @@ ShutProperty::ShutProperty() : Property("SHUT") {
 }
 
 bool ShutProperty::stops(const Block *&block) {
-    if (block->getBlockConcept()->getBlockProperties().contains(PropertyController::getPropertyMap()["KEY"])) return
+    if (block->getBlockConcept()->getBlockProperties().find(PropertyController::getPropertyMap()["KEY"]) != block->getBlockConcept()->getBlockProperties().end()) return
             false;
 
     return true;
@@ -21,7 +21,7 @@ std::set<Block *> ShutProperty::getBlocksToDelete(Block *const executedBy, const
     std::set<Block *> toDelete;
 
     for (Block *block: blocksInCell) {
-        if (block->getBlockConcept()->getBlockProperties().contains(PropertyController::getPropertyMap()["OPEN"])) {
+        if (block->getBlockConcept()->getBlockProperties().find(PropertyController::getPropertyMap()["OPEN"]) != block->getBlockConcept()->getBlockProperties().end()) {
             toDelete.insert(executedBy);
             toDelete.insert(block);
             break;

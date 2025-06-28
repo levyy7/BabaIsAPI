@@ -4,8 +4,9 @@
 
 #ifndef BLOCKCONCEPT_H
 #define BLOCKCONCEPT_H
-#include <set>
+#include <vector>
 #include <string>
+#include <set>
 #include <unordered_set>
 
 class Block;

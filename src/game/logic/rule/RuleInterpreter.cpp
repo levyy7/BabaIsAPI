@@ -4,7 +4,6 @@
 
 #include "RuleInterpreter.h"
 
-#include <boost/json/object.hpp>
 
 #include "BlockConcept.h"
 #include "BlockFactory.h"

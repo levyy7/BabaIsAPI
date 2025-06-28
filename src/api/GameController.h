@@ -5,7 +5,7 @@
 #ifndef GAMECONTROLLER_H
 #define GAMECONTROLLER_H
 
-#include <Crow.h>
+#include <crow.h>
 
 #include "command/CommandQueue.h"
 

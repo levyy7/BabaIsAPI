@@ -6,12 +6,10 @@
 
 #include <algorithm>
 #include <list>
-#include <boost/move/utility_core.hpp>
 
 #include "BlockFactory.h"
 #include "ConceptController.h"
 #include "PropertyController.h"
-#include "SFML/Graphics/Text.hpp"
 
 Level::Level(int levelSizeX, int levelSizeY, const BlockMap &blockMap) {
     this->levelSizeX = levelSizeX;
@@ -138,7 +136,7 @@ BlockMap Level::toBlockMap() const {
                 std::string blockName = b->getName();
                 Location blockLocation = b->getLocation();
 
-                if (!blockMap.contains(blockName)) {
+                if (blockMap.find(blockName) == blockMap.end()) {
                     blockMap[blockName] = std::vector<std::pair<int, int> >();
                 }
 

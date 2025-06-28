@@ -31,7 +31,7 @@ void GameController::addEndpoints() {
 
         return status->toJSON();
     });
-    CROW_ROUTE(app, "/move/<string>")
+    CROW_ROUTE(app, "/move/<string>").methods("GET"_method, "POST"_method)
     ([this](const crow::request &req, crow::response &res, const std::string &direction) {
         std::shared_ptr<Command> cmd;
 
@@ -62,7 +62,7 @@ void GameController::addEndpoints() {
 
         res.end();
     });
-    CROW_ROUTE(app, "/level/<string>")
+    CROW_ROUTE(app, "/level/<string>").methods("GET"_method, "POST"_method)
     ([this](const crow::request &req, crow::response &res, const std::string &action) {
         std::shared_ptr<Command> cmd;
 

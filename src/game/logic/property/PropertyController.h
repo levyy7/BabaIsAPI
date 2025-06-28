@@ -6,7 +6,6 @@
 #define PROPERTYCONTROLLER_H
 #include <map>
 #include <string>
-#include <boost/json/string.hpp>
 
 #include "DefeatProperty.h"
 #include "HotProperty.h"

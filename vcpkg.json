@@ -1,0 +1,129 @@
+{
+  "name" : "babaisapi",
+  "version-string" : "1.0.0",
+  "builtin-baseline" : "0cb95c860ea83aafc1b24350510b30dec535989a",
+  "dependencies" : [ {
+    "name" : "asio",
+    "version>=" : "1.32.0"
+  }, {
+    "name" : "boost-align",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-assert",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-cmake",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-config",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-container-hash",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-container",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-core",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-describe",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-endian",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-headers",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-intrusive",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-json",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-move",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-mp11",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-predef",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-static-assert",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-system",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-throw-exception",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-uninstall",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-variant2",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "boost-winapi",
+    "version>=" : "1.88.0"
+  }, {
+    "name" : "brotli",
+    "version>=" : "1.1.0#1"
+  }, {
+    "name" : "bzip2",
+    "version>=" : "1.0.8#6"
+  }, {
+    "name" : "catch2",
+    "version>=" : "3.8.1"
+  }, {
+    "name" : "crow",
+    "version>=" : "1.2.1.2"
+  }, {
+    "name" : "egl-registry",
+    "version>=" : "2024-01-25"
+  }, {
+    "name" : "freetype",
+    "version>=" : "2.13.3"
+  }, {
+    "name" : "libflac",
+    "version>=" : "1.5.0"
+  }, {
+    "name" : "libogg",
+    "version>=" : "1.3.6"
+  }, {
+    "name" : "libpng",
+    "version>=" : "1.6.48"
+  }, {
+    "name" : "libvorbis",
+    "version>=" : "1.3.7#4"
+  }, {
+    "name" : "miniaudio",
+    "version>=" : "0.11.22"
+  }, {
+    "name" : "opengl-registry",
+    "version>=" : "2024-02-10#1"
+  }, {
+    "name" : "opengl",
+    "version>=" : "2022-12-04#3"
+  }, {
+    "name" : "sfml",
+    "version>=" : "3.0.0#1"
+  }, {
+    "name" : "stb",
+    "version>=" : "2024-07-29#1"
+  }, {
+    "name" : "vcpkg-boost",
+    "version>=" : "2025-03-29"
+  }, {
+    "name" : "vcpkg-cmake-config",
+    "version>=" : "2024-05-23"
+  }, {
+    "name" : "vcpkg-cmake",
+    "version>=" : "2024-04-23"
+  }, {
+    "name" : "zlib",
+    "version>=" : "1.3.1"
+  } ]
+}

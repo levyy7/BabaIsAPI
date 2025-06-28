@@ -1,16 +1,19 @@
 //
-// Created by Eneko on 08/03/2025.
+// Created by levy on 6/28/25.
 //
-module;
 
-#include <iostream>
+#ifndef EVENTMANAGER_H
+#define EVENTMANAGER_H
+
+#include <memory>
 #include <optional>
 #include "../../../api/command/Command.h"
 
-export module EventManager;
-
-
-export class EventManager {
+class EventManager {
 public:
     virtual std::optional<std::shared_ptr<Command> > pollCommand() = 0;
 };
+
+
+
+#endif //EVENTMANAGER_H

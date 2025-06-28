@@ -14,7 +14,7 @@ std::set<Block *> DefeatProperty::getBlocksToDelete(Block *const executedBy, con
     std::set<Block *> toDelete;
 
     for (Block *block: blocksInCell) {
-        if (block->getBlockConcept()->getBlockProperties().contains(PropertyController::getPropertyMap()["YOU"])) {
+        if (block->getBlockConcept()->getBlockProperties().find(PropertyController::getPropertyMap()["YOU"]) != block->getBlockConcept()->getBlockProperties().end()) {
             toDelete.insert(block);
             break;
         }

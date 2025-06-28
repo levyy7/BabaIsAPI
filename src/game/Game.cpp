@@ -1,49 +1,34 @@
 #include "Game.h"
 
 #include <iostream>
+#include <chrono>
 
 #include "../api/command/StatusCommand.h"
 
-
-Game::Game(EventManager *eventManager) {
+Game::Game(EventManager *eventManager, GameMode mode) {
     LevelInfo currentLevel = LevelLoader::currentLevel();
 
-    gameManager = new GameManager(eventManager, currentLevel);
+    switch (mode) {
+        case GameMode::Headless:
+            gameManager = new GameManager(dynamic_cast<ApiEventManager *>(eventManager), currentLevel);
+            break;
+        case GameMode::Windowed:
+            gameManager = new WindowedGameManager(eventManager, currentLevel);
+            break;
+    }
+
     gameLogic = new GameLogic(currentLevel.sizeX, currentLevel.sizeY, currentLevel.blocks);
 }
 
 Game::Game(std::vector<EventManager *> eventManagers) {
     LevelInfo currentLevel = LevelLoader::currentLevel();
 
-    gameManager = new GameManager(eventManagers, currentLevel);
+    gameManager = new WindowedGameManager(eventManagers, currentLevel);
     gameLogic = new GameLogic(currentLevel.sizeX, currentLevel.sizeY, currentLevel.blocks);
 }
 
 Game::~Game() {
     delete gameManager;
-}
-
-void printBlockMapJson(const BlockMap &blockMap) {
-    std::cout << "{\n";
-    bool firstKey = true;
-
-    for (const auto &[key, vec]: blockMap) {
-        if (!firstKey) std::cout << ",\n";
-        firstKey = false;
-
-        std::cout << "  \"" << key << "\": [";
-        bool firstPair = true;
-
-        for (const auto &[first, second]: vec) {
-            if (!firstPair) std::cout << ", ";
-            firstPair = false;
-
-            std::cout << "[" << first << ", " << second << "]";
-        }
-        std::cout << "]";
-    }
-
-    std::cout << "\n}" << std::endl;
 }
 
 void Game::start() {
@@ -103,8 +88,6 @@ void Game::loadNextLevel() {
     LevelInfo currentLevel = LevelLoader::nextLevel();
     gameLogic->loadLevel(currentLevel.sizeX, currentLevel.sizeY, currentLevel.blocks);
 }
-
-#include <chrono>
 
 std::shared_ptr<Command> Game::startWinProcedure() {
     gameManager->updateGameState(gameLogic->getLevelMap());

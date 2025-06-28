@@ -4,7 +4,7 @@
 
 #include "ConceptController.h"
 
-#include <set>
+#include <algorithm>
 
 #include "Block.h"
 #include "NounBlock.h"

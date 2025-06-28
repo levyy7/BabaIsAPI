@@ -1,82 +1,96 @@
-add_executable(${PROJECT_NAME} main.cpp
-        game/Game.cpp
-        game/Game.h
-        game/logic/level/block/Block.cpp
-        game/logic/level/block/Block.h
-        game/logic/level/block/TextBlock.cpp
-        game/logic/level/block/TextBlock.h
-        game/logic/level/block/NounBlock.cpp
-        game/logic/level/block/NounBlock.h
-        game/logic/level/block/concept/BlockConcept.cpp
-        game/logic/level/block/concept/BlockConcept.h
-        game/logic/level/block/concept/ConceptController.cpp
-        game/logic/level/block/concept/ConceptController.h
-        game/logic/level/block/VerbBlock.cpp
-        game/logic/level/block/VerbBlock.h
-        game/logic/level/block/PropertyBlock.cpp
-        game/logic/level/block/PropertyBlock.h
-        game/logic/level/block/BlockFactory.cpp
-        game/logic/level/block/BlockFactory.h
-        game/logic/property/Property.cpp
-        game/logic/property/Property.h
-        game/logic/level/Level.cpp
-        game/logic/level/Level.h
-        game/logic/GameLogic.cpp
-        game/logic/GameLogic.h
-        game/logic/property/StopProperty.cpp
-        game/logic/property/StopProperty.h
-        game/logic/property/PushProperty.cpp
-        game/logic/property/PushProperty.h
-        game/logic/property/YouProperty.cpp
-        game/logic/property/YouProperty.h
-        game/logic/property/WinProperty.cpp
-        game/logic/property/WinProperty.h
-        game/logic/rule/RuleInterpreter.cpp
-        game/logic/rule/RuleInterpreter.h
-        game/logic/rule/RuleParser.cpp
-        game/logic/rule/RuleParser.h
-        game/logic/rule/Rule.cpp
-        game/logic/rule/Rule.h
-        game/logic/rule/PropertyRule.cpp
-        game/logic/rule/PropertyRule.h
-        game/logic/rule/NounRule.cpp
-        game/logic/rule/NounRule.h
-        game/logic/property/PropertyController.cpp
-        game/logic/property/PropertyController.h
-        api/GameController.cpp
-        api/GameController.h
-        api/command/Command.cpp
-        api/command/Command.h
-        api/command/CommandQueue.cpp
-        api/command/CommandQueue.h
-        game/engine/event/api_event_manager.ixx
-        api/dto/StatusDTO.cpp
-        api/dto/StatusDTO.h
-        api/command/StatusCommand.cpp
-        api/command/StatusCommand.h
-        api/command/LevelCommand.cpp
-        api/command/LevelCommand.h
-        game/logic/property/DefeatProperty.cpp
-        game/logic/property/DefeatProperty.h
-        game/logic/property/HotProperty.cpp
-        game/logic/property/HotProperty.h
-        game/logic/property/ShutProperty.cpp
-        game/logic/property/ShutProperty.h
-        game/logic/property/SinkProperty.cpp
-        game/logic/property/SinkProperty.h
+# Sources for the library
+set(GAME_MODULE_SOURCES
+        game/engine/WindowedGameManager.cpp
+        game/engine/event/EventManager.cpp
+        game/engine/event/KeyboardEventManager.cpp
+        game/engine/event/ApiEventManager.cpp
+        game/engine/SpriteManager.cpp
+        game/engine/LevelLoader.cpp
+        game/engine/GraphicManager.cpp
+        game/engine/GameManager.cpp
+        game/engine/GameManager.h
 )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE external)
+# Headers for include directories
+set(GAME_MODULE_INCLUDES
+        game/engine
+        game/engine/event
+        ${CMAKE_SOURCE_DIR}/resources/definitions
+        ${CMAKE_SOURCE_DIR}/resources/maps
+        ${CMAKE_SOURCE_DIR}/resources/sprites
+)
 
-target_sources(${PROJECT_NAME}
-        PUBLIC
-        FILE_SET CXX_MODULES
-        FILES
-        game/engine/event/event_manager.ixx
-        game/engine/event/keyboard_event_manager.ixx
-        game/engine/level_loader.ixx
-        game/engine/sprite_manager.ixx
-        game/engine/graphic_manager.ixx
-        game/engine/game_manager.ixx)
+add_library(GameModules STATIC ${GAME_MODULE_SOURCES})
 
-include_directories(${CMAKE_SOURCE_DIR}/src/game/logic ${CMAKE_SOURCE_DIR}/src/game/logic/level ${CMAKE_SOURCE_DIR}/src/game/logic/level/block ${CMAKE_SOURCE_DIR}/src/game/logic/level/block/concept ${CMAKE_SOURCE_DIR}/src/game/logic/property ${CMAKE_SOURCE_DIR}/src/game/logic/level/block/concept ${CMAKE_SOURCE_DIR}/src/game/logic/rule ${CMAKE_SOURCE_DIR}/resources/definitions)
+target_include_directories(GameModules PUBLIC ${GAME_MODULE_INCLUDES} ${CMAKE_SOURCE_DIR}/src)
+
+# Find SFML and link necessary components
+find_package(SFML COMPONENTS Network Graphics Window Audio System CONFIG REQUIRED)
+target_link_libraries(GameModules PRIVATE SFML::Graphics SFML::Window SFML::System)
+
+# Find Crow and asio
+find_package(Crow CONFIG REQUIRED)
+find_package(asio CONFIG REQUIRED)
+
+target_link_libraries(GameModules PRIVATE Crow::Crow asio::asio)
+
+# Include additional source files for the executable
+set(APP_SOURCES
+        main.cpp
+        game/Game.cpp
+        game/logic/level/block/Block.cpp
+        game/logic/level/block/TextBlock.cpp
+        game/logic/level/block/NounBlock.cpp
+        game/logic/level/block/concept/BlockConcept.cpp
+        game/logic/level/block/concept/ConceptController.cpp
+        game/logic/level/block/VerbBlock.cpp
+        game/logic/level/block/PropertyBlock.cpp
+        game/logic/level/block/BlockFactory.cpp
+        game/logic/property/Property.cpp
+        game/logic/level/Level.cpp
+        game/logic/GameLogic.cpp
+        game/logic/property/StopProperty.cpp
+        game/logic/property/PushProperty.cpp
+        game/logic/property/YouProperty.cpp
+        game/logic/property/WinProperty.cpp
+        game/logic/rule/RuleInterpreter.cpp
+        game/logic/rule/RuleParser.cpp
+        game/logic/rule/Rule.cpp
+        game/logic/rule/PropertyRule.cpp
+        game/logic/rule/NounRule.cpp
+        game/logic/property/PropertyController.cpp
+        api/GameController.cpp
+        api/command/Command.cpp
+        api/command/CommandQueue.cpp
+        api/dto/StatusDTO.cpp
+        api/command/StatusCommand.cpp
+        api/command/LevelCommand.cpp
+        game/logic/property/DefeatProperty.cpp
+        game/logic/property/HotProperty.cpp
+        game/logic/property/ShutProperty.cpp
+        game/logic/property/SinkProperty.cpp
+)
+
+add_executable(${PROJECT_NAME} ${APP_SOURCES})
+
+target_include_directories(${PROJECT_NAME} PRIVATE
+        game
+        game/logic
+        game/logic/level
+        game/logic/level/block
+        game/logic/level/block/concept
+        game/logic/property
+        game/logic/rule
+        api
+        api/command
+        api/dto
+        ${CMAKE_SOURCE_DIR}/resources/definitions
+        ${CMAKE_SOURCE_DIR}/resources/maps
+        ${CMAKE_SOURCE_DIR}/resources/sprites
+)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE GameModules Crow::Crow asio::asio)
+
+# Optional: Find and link Brotli if needed by your project
+find_package(unofficial-brotli CONFIG REQUIRED)
+target_link_libraries(${PROJECT_NAME} PRIVATE unofficial::brotli::brotlidec unofficial::brotli::brotlienc)

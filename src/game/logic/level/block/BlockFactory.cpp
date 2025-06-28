@@ -53,7 +53,7 @@ Block *BlockFactory::produceBlock(const std::string &blockName) {
 Block *BlockFactory::produceBlock(const std::string &blockName, Location location) {
     std::string uppercaseBlockName = toUpperCase(blockName);
 
-    if (BLOCK_NAMES.contains(uppercaseBlockName)) {
+    if (BLOCK_NAMES.find(uppercaseBlockName) != BLOCK_NAMES.end()) {
         //Is regular Block
         BlockConcept *blockConcept = ConceptController::getBlockConcept(uppercaseBlockName);
 
@@ -62,14 +62,14 @@ Block *BlockFactory::produceBlock(const std::string &blockName, Location locatio
         //Is text block
         BlockConcept *blockConcept = ConceptController::getBlockConcept("TEXT");
 
-        if (NOUN_BLOCK_NAMES.contains(uppercaseBlockName)) {
+        if (NOUN_BLOCK_NAMES.find(uppercaseBlockName) != NOUN_BLOCK_NAMES.end()) {
             std::string referencedConceptName = uppercaseBlockName.substr(5);
             BlockConcept *referencedConcept = ConceptController::getBlockConcept(referencedConceptName);
 
             return new NounBlock(uppercaseBlockName, location, blockConcept, referencedConcept);
-        } else if (VERB_BLOCK_NAMES.contains(uppercaseBlockName)) {
+        } else if (VERB_BLOCK_NAMES.find(uppercaseBlockName) != VERB_BLOCK_NAMES.end()) {
             return new VerbBlock(uppercaseBlockName, location, blockConcept);
-        } else if (PropertyController::getPropertyMap().contains(uppercaseBlockName)) {
+        } else if (PropertyController::getPropertyMap().find(uppercaseBlockName) != PropertyController::getPropertyMap().end()) {
             return new PropertyBlock(uppercaseBlockName, location, blockConcept,
                                      PropertyController::getPropertyMap()[uppercaseBlockName]);
         }

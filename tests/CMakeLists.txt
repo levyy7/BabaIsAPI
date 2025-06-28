@@ -1,5 +1,3 @@
-find_package(Catch2 3 REQUIRED)
-
 add_executable(tests_run
         TestExample.cpp
         ../src/game/logic/level/block/Block.cpp
@@ -47,7 +45,8 @@ add_executable(tests_run
         ../src/game/logic/property/PropertyController.h
 )
 
-target_link_libraries(tests_run PRIVATE Catch2::Catch2WithMain)
+find_package(Catch2 CONFIG REQUIRED)
+target_link_libraries(tests_run PRIVATE Catch2::Catch2 Catch2::Catch2WithMain)
 
 include_directories(${CMAKE_SOURCE_DIR}/src/game/logic/level/block ${CMAKE_SOURCE_DIR}/src/game/logic/level/block/concept)
 

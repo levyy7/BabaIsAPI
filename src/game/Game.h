@@ -4,14 +4,18 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
-import GameManager;
-import LevelLoader;
 #include "GameLogic.h"
+#include "engine/WindowedGameManager.h"
 #include "../../../api/command/CommandQueue.h"
+
+enum GameMode {
+    Headless,
+    Windowed
+};
 
 class Game {
 public:
-    Game(EventManager *eventManager);
+    Game(EventManager *eventManager, GameMode mode);
 
     Game(std::vector<EventManager *> eventManagers);
 

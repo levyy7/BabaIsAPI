@@ -16,6 +16,7 @@ int main(int argc, char **argv) {
 
     std::string mode;
     unsigned short port = 8000; // Default port for API mode.
+    GameMode gameMode = GameMode::Windowed;
 
     // Parse command-line arguments.
     for (int i = 1; i < argc; ++i) {
@@ -42,6 +43,8 @@ int main(int argc, char **argv) {
                 printUsage(argv[0]);
                 return 1;
             }
+        } else if (arg == "-headless") {
+            gameMode = GameMode::Headless;
         } else {
             std::cerr << "Error: Unknown argument: " << arg << std::endl;
             printUsage(argv[0]);
@@ -57,7 +60,15 @@ int main(int argc, char **argv) {
     }
 
     // Execute based on the chosen mode.
-    if (mode == "api") {
+    if (gameMode == GameMode::Headless) {
+        CommandQueue *commandQueue = new CommandQueue();
+        GameController gameController{commandQueue};
+        gameController.runServer(port); // Use specified port.
+
+        Game game{new ApiEventManager(commandQueue), gameMode};
+        game.start();
+    }
+    else if (mode == "api") {
         CommandQueue *commandQueue = new CommandQueue();
         GameController gameController{commandQueue};
         gameController.runServer(port); // Use specified port.
@@ -65,7 +76,7 @@ int main(int argc, char **argv) {
         Game game{{new ApiEventManager(commandQueue), new KeyboardEventManager()}};
         game.start();
     } else if (mode == "keyboard") {
-        Game game{new KeyboardEventManager()};
+        Game game{new KeyboardEventManager(), gameMode};
         game.start();
     }
 
