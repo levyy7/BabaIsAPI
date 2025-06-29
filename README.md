@@ -19,7 +19,20 @@ BabaIsAPI is a C++ re-implementation of the popular puzzle game Baba. Its main c
 
 ---
 
-## Installation
+
+## 🚀 Docker Image (Recommended)
+
+The recommended way to use BabaIsAPI in headless API mode is via Docker. A prebuilt image is available on Docker Hub:
+
+- **Image**: [`levyy7/babaisapi`](https://hub.docker.com/r/levyy7/babaisapi)
+
+### Example Usage
+
+```bash
+docker run -p 8080:8080 levyy7/babaisapi
+```
+
+## Manual Installation
 
 ### Prerequisites
 
