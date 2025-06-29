@@ -4,10 +4,12 @@
 
 #include "RuleParser.h"
 
-#include "NounRule.h"
-#include "PropertyBlock.h"
-#include "PropertyRule.h"
-#include "VerbBlock.h"
+#include "game/logic/rule/NounRule.h"
+#include "game/logic/rule/PropertyRule.h"
+#include "game/logic/level/block/NounBlock.h"
+#include "game/logic/level/block/PropertyBlock.h"
+#include "game/logic/level/block/VerbBlock.h"
+
 
 //Trivial way to parse text, which works only for 3 word texts
 std::vector<Rule *> RuleParser::parseText(const std::vector<std::vector<TextBlock *> > &textSequences) {

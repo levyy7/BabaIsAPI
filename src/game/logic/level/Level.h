@@ -6,9 +6,12 @@
 #define LEVEL_H
 #include <list>
 #include <map>
+#include <string>
+#include <vector>
 
-#include "Block.h"
-#include "TextBlock.h"
+#include "game/logic/level/block/TextBlock.h"
+#include "game/logic/level/block/Block.h"
+
 
 typedef std::vector<Block *> Cell;
 typedef std::map<std::string, std::vector<std::pair<int, int> > > BlockMap;

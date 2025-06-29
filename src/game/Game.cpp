@@ -3,7 +3,7 @@
 #include <iostream>
 #include <chrono>
 
-#include "../api/command/StatusCommand.h"
+#include "logic/level/block/Block.h"
 
 Game::Game(EventManager *eventManager, GameMode mode) {
     LevelInfo currentLevel = LevelLoader::currentLevel();

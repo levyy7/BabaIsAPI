@@ -4,8 +4,8 @@
 
 #include "DefeatProperty.h"
 
-#include "BlockConcept.h"
 #include "PropertyController.h"
+#include "game/logic/level/block/concept/BlockConcept.h"
 
 DefeatProperty::DefeatProperty() : Property("DEFEAT") {
 }

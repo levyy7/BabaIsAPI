@@ -4,7 +4,7 @@
 
 #include "NounBlock.h"
 
-#include "concept/BlockConcept.h"
+#include "game/logic/level/block/concept/BlockConcept.h"
 
 NounBlock::NounBlock(const std::string &name, BlockConcept *blockConcept, BlockConcept *referencedConcept)
     : TextBlock(name, blockConcept), referencedConcept(referencedConcept) {

@@ -4,8 +4,8 @@
 
 #include "HotProperty.h"
 
-#include "BlockConcept.h"
 #include "PropertyController.h"
+#include "game/logic/level/block/concept/BlockConcept.h"
 
 HotProperty::HotProperty() : Property("HOT") {
 }

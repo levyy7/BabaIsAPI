@@ -4,8 +4,10 @@
 
 #ifndef GAMELOGIC_H
 #define GAMELOGIC_H
-#include "Level.h"
-#include "Rule.h"
+#include "game/engine/LevelLoader.h"
+#include "game/logic/level/Level.h"
+#include "game/logic/level/block/Block.h"
+#include "game/logic/rule/Rule.h"
 
 
 class GameLogic {

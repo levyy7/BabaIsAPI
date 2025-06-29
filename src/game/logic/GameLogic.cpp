@@ -4,9 +4,11 @@
 
 #include "GameLogic.h"
 
-#include "ConceptController.h"
-#include "RuleInterpreter.h"
-#include "RuleParser.h"
+#include "game/logic/level/block/NounBlock.h"
+#include "game/logic/level/block/concept/ConceptController.h"
+#include "game/logic/rule/RuleInterpreter.h"
+#include "game/logic/rule/RuleParser.h"
+
 
 GameLogic::GameLogic(int levelSizeX, int levelSizeY, const BlockMap &blockMap) {
     this->level = new Level(levelSizeX, levelSizeY, blockMap);

@@ -5,8 +5,9 @@
 #ifndef PROPERTY_H
 #define PROPERTY_H
 #include <set>
+#include <string>
 
-#include "Block.h"
+#include "game/logic/level/block/Block.h"
 
 
 class Property {

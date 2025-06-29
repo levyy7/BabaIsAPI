@@ -4,7 +4,6 @@
 
 #include "SinkProperty.h"
 
-#include "BlockConcept.h"
 #include "PropertyController.h"
 
 SinkProperty::SinkProperty() : Property("SINK") {

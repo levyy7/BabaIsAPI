@@ -4,8 +4,8 @@
 
 #include "WinProperty.h"
 
-#include "BlockConcept.h"
-#include "Level.h"
+#include "game/logic/level/block/concept/BlockConcept.h"
+
 
 WinProperty::WinProperty() : Property("WIN") {
 }

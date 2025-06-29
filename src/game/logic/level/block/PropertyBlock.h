@@ -4,8 +4,9 @@
 
 #ifndef PROPERTYBLOCK_H
 #define PROPERTYBLOCK_H
-#include "Property.h"
+
 #include "TextBlock.h"
+#include "game/logic/property/Property.h"
 
 
 class PropertyBlock : public TextBlock {

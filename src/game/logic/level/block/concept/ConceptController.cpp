@@ -6,8 +6,9 @@
 
 #include <algorithm>
 
-#include "Block.h"
-#include "NounBlock.h"
+#include "game/logic/level/block/Block.h"
+#include "game/logic/level/block/NounBlock.h"
+
 
 std::unordered_set<BlockConcept *> ConceptController::getBlockConcepts() {
     return blockConcepts;

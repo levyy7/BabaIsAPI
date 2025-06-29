@@ -5,10 +5,10 @@
 #ifndef RULEINTERPRETER_H
 #define RULEINTERPRETER_H
 #include <unordered_set>
+#include <vector>
 
 #include "NounRule.h"
 #include "PropertyRule.h"
-#include "Rule.h"
 
 
 class BlockConcept;

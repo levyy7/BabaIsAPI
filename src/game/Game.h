@@ -4,9 +4,10 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
-#include "GameLogic.h"
+#include "game/logic/GameLogic.h"
 #include "engine/WindowedGameManager.h"
-#include "../../../api/command/CommandQueue.h"
+#include "api/command/CommandQueue.h"
+#include "api/command/StatusCommand.h"
 
 enum GameMode {
     Headless,

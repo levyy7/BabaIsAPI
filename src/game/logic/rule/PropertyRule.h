@@ -4,8 +4,9 @@
 
 #ifndef PROPERTYRULE_H
 #define PROPERTYRULE_H
-#include "PropertyBlock.h"
+
 #include "Rule.h"
+#include "game/logic/level/block/PropertyBlock.h"
 
 
 class PropertyRule : public Rule {

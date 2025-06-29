@@ -5,6 +5,7 @@
 #ifndef PUSHPROPERTY_H
 #define PUSHPROPERTY_H
 #include "Property.h"
+#include "game/logic/level/block/Block.h"
 
 
 class PushProperty final : public Property {

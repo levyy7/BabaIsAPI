@@ -3,9 +3,8 @@
 //
 #include "BlockConcept.h"
 
-#include "Property.h"
-#include "../Block.h"
-#include "../NounBlock.h"
+#include "game/logic/property/Property.h"
+
 
 BlockConcept::BlockConcept(std::string name) {
     this->name = name;

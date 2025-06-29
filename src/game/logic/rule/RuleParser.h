@@ -5,8 +5,11 @@
 #ifndef RULEPARSER_H
 #define RULEPARSER_H
 
-#include "Rule.h"
-#include "TextBlock.h"
+#include <vector>
+
+#include "game/logic/level/block/TextBlock.h"
+#include "game/logic/rule/Rule.h"
+
 
 class RuleParser {
 public:

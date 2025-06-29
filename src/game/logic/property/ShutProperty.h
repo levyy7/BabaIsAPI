@@ -5,6 +5,7 @@
 #ifndef SHUTPROPERTY_H
 #define SHUTPROPERTY_H
 #include "Property.h"
+#include "game/logic/level/block/Block.h"
 
 
 class ShutProperty : public Property {

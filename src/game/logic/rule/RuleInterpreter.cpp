@@ -4,11 +4,10 @@
 
 #include "RuleInterpreter.h"
 
-
-#include "BlockConcept.h"
-#include "BlockFactory.h"
-#include "ConceptController.h"
-#include "PropertyController.h"
+#include "game/logic/level/block/Block.h"
+#include "game/logic/level/block/BlockFactory.h"
+#include "game/logic/level/block/concept/ConceptController.h"
+#include "game/logic/property/PropertyController.h"
 
 
 void RuleInterpreter::clearRules(const std::unordered_set<BlockConcept *> &concepts) {

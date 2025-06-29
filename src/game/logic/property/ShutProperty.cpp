@@ -4,8 +4,8 @@
 
 #include "ShutProperty.h"
 
-#include "BlockConcept.h"
 #include "PropertyController.h"
+#include "game/logic/level/block/concept/BlockConcept.h"
 
 ShutProperty::ShutProperty() : Property("SHUT") {
 }

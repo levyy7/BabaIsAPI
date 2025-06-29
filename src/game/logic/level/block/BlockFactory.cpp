@@ -12,12 +12,9 @@
 #include "NounBlock.h"
 #include "VerbBlock.h"
 #include "PropertyBlock.h"
-#include "PropertyController.h"
-#include "PushProperty.h"
-#include "StopProperty.h"
-#include "WinProperty.h"
-#include "YouProperty.h"
+
 #include "concept/ConceptController.h"
+#include "game/logic/property/PropertyController.h"
 
 const std::set<std::string> BLOCK_NAMES = {
     "ALGAE", "ALL", "ANNI", "BABA", "BAT", "BELT", "BIRD", "BOG", "BOLT",

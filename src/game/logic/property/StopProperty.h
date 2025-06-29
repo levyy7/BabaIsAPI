@@ -5,6 +5,7 @@
 #ifndef WALLPROPERTY_H
 #define WALLPROPERTY_H
 #include "Property.h"
+#include "game/logic/level/block/Block.h"
 
 
 class StopProperty final : public Property {

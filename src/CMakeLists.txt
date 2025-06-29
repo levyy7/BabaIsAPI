@@ -13,8 +13,6 @@ set(GAME_MODULE_SOURCES
 
 # Headers for include directories
 set(GAME_MODULE_INCLUDES
-        game/engine
-        game/engine/event
         ${CMAKE_SOURCE_DIR}/resources/definitions
         ${CMAKE_SOURCE_DIR}/resources/maps
         ${CMAKE_SOURCE_DIR}/resources/sprites
@@ -73,21 +71,7 @@ set(APP_SOURCES
 
 add_executable(${PROJECT_NAME} ${APP_SOURCES})
 
-target_include_directories(${PROJECT_NAME} PRIVATE
-        game
-        game/logic
-        game/logic/level
-        game/logic/level/block
-        game/logic/level/block/concept
-        game/logic/property
-        game/logic/rule
-        api
-        api/command
-        api/dto
-        ${CMAKE_SOURCE_DIR}/resources/definitions
-        ${CMAKE_SOURCE_DIR}/resources/maps
-        ${CMAKE_SOURCE_DIR}/resources/sprites
-)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE GameModules Crow::Crow asio::asio)
 

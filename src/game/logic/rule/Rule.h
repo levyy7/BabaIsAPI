@@ -4,8 +4,7 @@
 
 #ifndef RULE_H
 #define RULE_H
-#include "NounBlock.h"
-#include "TextBlock.h"
+#include "game/logic/level/block/NounBlock.h"
 
 
 class Rule {

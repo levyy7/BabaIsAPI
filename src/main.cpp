@@ -53,7 +53,7 @@ int main(int argc, char **argv) {
     }
 
     // Validate mode.
-    if (mode != "api" && mode != "keyboard") {
+    if (mode != "api" && mode != "keyboard" && gameMode == GameMode::Windowed) {
         std::cerr << "Error: Mode must be either 'api' or 'keyboard'." << std::endl;
         printUsage(argv[0]);
         return 1;

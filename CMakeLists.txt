@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.22)
 project(BabaIsAPI)
 
 set(LEVEL_LOADER_HEADERS
@@ -9,5 +9,6 @@ set(LEVEL_LOADER_HEADERS
 )
 
 add_subdirectory(src)
-add_subdirectory(tests)
-
+if (NOT CMAKE_BUILD_TYPE STREQUAL "Release")
+    add_subdirectory(tests)
+endif()

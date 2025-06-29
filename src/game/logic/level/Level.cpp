@@ -7,9 +7,9 @@
 #include <algorithm>
 #include <list>
 
-#include "BlockFactory.h"
-#include "ConceptController.h"
-#include "PropertyController.h"
+#include "block/BlockFactory.h"
+#include "block/concept/ConceptController.h"
+
 
 Level::Level(int levelSizeX, int levelSizeY, const BlockMap &blockMap) {
     this->levelSizeX = levelSizeX;

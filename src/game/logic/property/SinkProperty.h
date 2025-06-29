@@ -5,6 +5,7 @@
 #ifndef SINKPROPERTY_H
 #define SINKPROPERTY_H
 #include "Property.h"
+#include "game/logic/level/block/Block.h"
 
 
 class SinkProperty : public Property {

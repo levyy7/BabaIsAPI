@@ -4,7 +4,10 @@
 
 #ifndef WINPROPERTY_H
 #define WINPROPERTY_H
+#include <vector>
+
 #include "Property.h"
+#include "game/logic/level/block/Block.h"
 
 
 class WinProperty : public Property {
